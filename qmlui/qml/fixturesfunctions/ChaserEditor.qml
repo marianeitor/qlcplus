@@ -149,6 +149,7 @@ Rectangle
                 height: ceContainer.height - (topbar.visible ? topbar.height : 0) - chModes.height
                 model: chaserEditor.stepsList
                 playbackIndex: chaserEditor.playbackIndex
+                speedType: chaserEditor.stepsDuration
                 tempoType: chaserEditor.tempoType
                 isRunning: chaserEditor.previewEnabled
 
@@ -156,6 +157,7 @@ Rectangle
                 onStepValueChanged: chaserEditor.setStepSpeed(index, value, type)
                 onNoteTextChanged: chaserEditor.setStepNote(index, text)
                 onAddFunctions: chaserEditor.addFunctions(list, index)
+                onMoveSteps: chaserEditor.moveSteps(list, index)
                 onRequestEditor:
                 {
                     functionManager.setEditorFunction(funcID, false, false)

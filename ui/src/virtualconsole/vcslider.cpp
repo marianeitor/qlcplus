@@ -811,6 +811,7 @@ void VCSlider::slotClickAndGoLevelChanged(uchar level)
     QPixmap px(42, 42);
     px.fill(col);
     m_cngButton->setIcon(px);
+    m_levelValueChanged = true;
 }
 
 void VCSlider::slotClickAndGoColorChanged(QRgb color)
@@ -836,6 +837,7 @@ void VCSlider::slotClickAndGoLevelAndPresetChanged(uchar level, QImage img)
 
     QPixmap px = QPixmap::fromImage(img);
     m_cngButton->setIcon(px);
+    m_levelValueChanged = true;
 }
 
 /*********************************************************************
@@ -1100,6 +1102,7 @@ void VCSlider::writeDMXLevel(MasterTimer *timer, QList<Universe *> universes)
             if (fader == NULL)
             {
                 fader = universes[universe]->requestFader(m_monitorEnabled ? Universe::Override : Universe::Auto);
+                fader->adjustIntensity(intensity());
                 m_fadersMap[universe] = fader;
                 if (m_monitorEnabled)
                 {
@@ -1154,7 +1157,7 @@ void VCSlider::writeDMXLevel(MasterTimer *timer, QList<Universe *> universes)
             }
 
             fc->setStart(fc->current());
-            fc->setTarget(modLevel * intensity());
+            fc->setTarget(modLevel);
             fc->setReady(false);
             fc->setElapsed(0);
 
@@ -1509,6 +1512,11 @@ void VCSlider::adjustIntensity(qreal val)
 
         qreal pIntensity = qreal(m_playbackValue) / qreal(UCHAR_MAX);
         adjustFunctionIntensity(function, pIntensity * intensity());
+    }
+    else if (sliderMode() == Level)
+    {
+        foreach (GenericFader *fader, m_fadersMap.values())
+            fader->adjustIntensity(val);
     }
 }
 

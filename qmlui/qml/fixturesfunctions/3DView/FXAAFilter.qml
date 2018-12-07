@@ -25,15 +25,12 @@ import QtQuick 2.0
 TechniqueFilter
 {
     property Layer screenQuadFXAALayer
-
     property Texture2D inTexture
+    property RenderTarget outRenderTarget
 
     parameters: [
         Parameter { name: "colorTex"; value: inTexture }
     ]
-
-    property RenderTarget outRenderTarget
-
 
     RenderStateSet
     {
@@ -50,7 +47,8 @@ TechniqueFilter
         {
             layers: screenQuadFXAALayer
 
-            RenderTargetSelector {
+            RenderTargetSelector
+            {
                 target:  outRenderTarget
 
                 ClearBuffers
@@ -61,7 +59,6 @@ TechniqueFilter
                         matchAny: FilterKey { name: "pass"; value: "fxaa" }
                     }
                 }
-
             }
         }
     }

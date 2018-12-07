@@ -36,6 +36,7 @@ Entity
     property int itemID: fixtureManager.invalidFixture()
     property alias itemSource: eSceneLoader.source
     property bool isSelected: false
+    property int headsNumber: 1
 
     onItemIDChanged: isSelected = contextManager.isFixtureSelected(itemID)
 
@@ -74,9 +75,9 @@ Entity
     }
 
     /* **************** Spotlight cone properties **************** */
-    readonly property Layer spotlightShadingLayer: Layer { objectName: "spotlightShadingLayer" }
-    readonly property Layer outputDepthLayer: Layer { objectName: "outputDepthLayer" }
-    readonly property Layer spotlightScatteringLayer: Layer { objectName: "spotlightScatteringLayer" }
+    readonly property Layer spotlightShadingLayer: Layer { }
+    readonly property Layer outputDepthLayer: Layer { }
+    readonly property Layer spotlightScatteringLayer: Layer { }
 
     property real coneBottomRadius: distCutoff * Math.tan(cutoffAngle) + coneTopRadius
     property real coneTopRadius: (0.24023 / 2) * transform.scale3D.x * 0.7 // (diameter / 2) * scale * magic number
@@ -96,7 +97,6 @@ Entity
     /* ********************* Light properties ********************* */
     /* ****** These are bound to uniforms in ScreenQuadEntity ***** */
 
-    property int lightIndex
     property real lightIntensity: dimmerValue * shutterValue
     property real dimmerValue: 0
     property real shutterValue: sAnimator.shutterValue
@@ -135,6 +135,27 @@ Entity
         fixtureEntity.tiltMaxDegrees = maxDegrees
         tiltRotation = maxDegrees / 2
         t.rotationX = Qt.binding(function() { return tiltRotation })
+    }
+
+    function getHead(headIndex)
+    {
+        return fixtureEntity
+    }
+
+    function setHeadLightProps(headIndex, pos, matrix)
+    {
+        lightPos = pos
+        lightMatrix = matrix
+    }
+
+    function setHeadIntensity(headIndex, intensity)
+    {
+        dimmerValue = intensity
+    }
+
+    function setHeadRGBColor(headIndex, color)
+    {
+        lightColor = color
     }
 
     function setPosition(pan, tilt)
@@ -178,20 +199,20 @@ Entity
         cutoffAngle = (((((focusMaxDegrees - focusMinDegrees) / 255) * value) + focusMinDegrees) / 2) * (Math.PI / 180)
     }
 
-    function setupScattering(shadingEffect, scatteringEffect, depthEffect, sceneEntity)
+    function setupScattering(sceneEntity)
     {
         if (sceneEntity.coneMesh.length !== distCutoff)
             sceneEntity.coneMesh.length = distCutoff
 
-        shadingCone.coneEffect = shadingEffect
+        shadingCone.coneEffect = sceneEntity.spotlightShadingEffect
         shadingCone.parent = sceneEntity
         shadingCone.spotlightConeMesh = sceneEntity.coneMesh
 
-        scatteringCone.coneEffect = scatteringEffect
+        scatteringCone.coneEffect = sceneEntity.spotlightScatteringEffect
         scatteringCone.parent = sceneEntity
         scatteringCone.spotlightConeMesh = sceneEntity.coneMesh
 
-        outDepthCone.coneEffect = depthEffect
+        outDepthCone.coneEffect = sceneEntity.outputFrontDepthEffect
         outDepthCone.parent = sceneEntity
         outDepthCone.spotlightConeMesh = sceneEntity.coneMesh
     }
@@ -212,33 +233,32 @@ Entity
         easing.type: Easing.Linear
     }
 
+    property Texture2D depthTex:
+        Texture2D
+        {
+            width: 1024
+            height: 1024
+            format: Texture.D32F
+            generateMipMaps: false
+            magnificationFilter: Texture.Linear
+            minificationFilter: Texture.Linear
+            wrapMode
+            {
+                x: WrapMode.ClampToEdge
+                y: WrapMode.ClampToEdge
+            }
+        }
+
     property RenderTarget shadowMap:
         RenderTarget
         {
-            property alias depth: depthAttachment
-
             attachments: [
                 RenderTargetOutput
                 {
                     attachmentPoint: RenderTargetOutput.Depth
-                    texture:
-                        Texture2D
-                        {
-                            id: depthAttachment
-                            width: 1024
-                            height: 1024
-                            format: Texture.D32F
-                            generateMipMaps: false
-                            magnificationFilter: Texture.Linear
-                            minificationFilter: Texture.Linear
-                            wrapMode
-                            {
-                                x: WrapMode.ClampToEdge
-                                y: WrapMode.ClampToEdge
-                            }
-                        }
+                    texture: depthTex
                 }
-            ] // outputs
+            ] // attachments
         }
 
     /* **************** Gobo properties **************** */
@@ -249,8 +269,8 @@ Entity
     {
         //console.log("Gobo clockwise: " + (cw ? "yes" : "no") + " speed: " + speed)
         goboAnim.stop()
-        goboAnim.from = cw ? 0 : 359
-        goboAnim.to = cw ? 359 : 0
+        goboAnim.from = cw ? 0 : Math.PI * 2
+        goboAnim.to = cw ? Math.PI * 2 : 0
         if (speed !== 0)
         {
             goboAnim.duration = speed
@@ -269,7 +289,8 @@ Entity
         loops: QQ2.Animation.Infinite
     }
 
-    /* Cone meshes used for scattering. These get re-parented to a head mesh via setupScattering */
+    /* Cone meshes used for scattering. These get re-parented to
+       the main Scene entity via setupScattering */
     SpotlightConeEntity
     {
         id: shadingCone

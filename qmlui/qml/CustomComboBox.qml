@@ -42,18 +42,22 @@ ComboBox
 
     property string currentIcon
     property int currentValue
+    property int delegateHeight: UISettings.listItemHeight
 
     signal valueChanged(int value)
 
-    onCurrentValueChanged:
+    onCurrentValueChanged: updateCurrentItem()
+
+    function updateCurrentItem()
     {
         if (!model)
             return
 
-        //console.log("Value changed:" + currentValue + ", model count: " + model.length)
-        for (var i = 0; i < model.length; i++)
+        var iCount = model.length === undefined ? model.count : model.length
+        //console.log("Value changed:" + currentValue + ", model count: " + iCount)
+        for (var i = 0; i < iCount; i++)
         {
-            var item = model[i]
+            var item = model.length === undefined ? model.get(i) : model[i]
             if (item.mValue === currentValue)
             {
                 displayText = item.mLabel
@@ -78,7 +82,7 @@ ComboBox
         ItemDelegate
         {
             width: parent.width
-            implicitHeight: UISettings.listItemHeight
+            implicitHeight: delegateHeight
             highlighted: control.highlightedIndex === index
             hoverEnabled: control.hoverEnabled
             padding: 0
@@ -111,7 +115,7 @@ ComboBox
                 {
                     displayText = text
                     currentIcon = itemIcon
-                    console.log("Index changed:" + index + ", value: " + itemValue)
+                    //console.log("Index changed:" + index + ", value: " + itemValue)
                     if (itemValue !== undefined)
                     {
                         currentValue = itemValue
@@ -129,7 +133,7 @@ ComboBox
                     Image
                     {
                         visible: itemIcon ? true : false
-                        height: UISettings.listItemHeight - 4
+                        height: delegateHeight - 4
                         width: height
                         y: 2
                         source: itemIcon
@@ -139,7 +143,7 @@ ComboBox
                     RobotoText
                     {
                         label: text
-                        height: UISettings.listItemHeight
+                        height: delegateHeight
                         fontSize: UISettings.textSizeDefault
                     }
                 }
@@ -147,8 +151,8 @@ ComboBox
             background:
                 Rectangle
                 {
-                    width: control.width
-                    height: UISettings.listItemHeight
+                    width: contentItem.width
+                    height: delegateHeight
                     visible: control.down || control.highlighted || control.visualFocus
                     color: highlighted ? UISettings.highlight : hovered ? UISettings.bgControl : "transparent"
                 }
@@ -207,7 +211,7 @@ ComboBox
         {
             visible: !control.flat || control.down
             implicitWidth: 150
-            implicitHeight: UISettings.listItemHeight
+            implicitHeight: delegateHeight
             color: control.hovered ? UISettings.bgLight : UISettings.bgControl
             border.width: 1
             border.color: UISettings.bgStrong

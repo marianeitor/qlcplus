@@ -17,7 +17,6 @@
   limitations under the License.
 */
 
-
 import Qt3D.Core 2.0
 import Qt3D.Render 2.0
 
@@ -25,11 +24,11 @@ import QtQuick 2.0
 
 TechniqueFilter
 {
+    property alias spotlightShadingLayer: slsLayerFilter.layers
+    property alias frameTarget: tSelector.target
     property GBuffer gBuffer
-    property Layer spotlightShadingLayer
-    property Texture2D shadowTex
-    property FrameTarget frameTarget
-    property bool useShadows
+    property Texture2D shadowTex: null
+    property bool useShadows: true
 
     parameters: [
         Parameter { name: "albedoTex"; value: gBuffer ? gBuffer.color : null },
@@ -52,10 +51,12 @@ TechniqueFilter
         ]
         LayerFilter
         {
-            layers: spotlightShadingLayer
+            id: slsLayerFilter
 
-            RenderTargetSelector {
-                target: frameTarget
+            RenderTargetSelector
+            {
+                id: tSelector
+
                 RenderPassFilter
                 {
                     matchAny: FilterKey { name: "pass"; value: "spotlight_shading" }

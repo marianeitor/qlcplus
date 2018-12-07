@@ -159,6 +159,7 @@ Rectangle
                         function updateChannel()
                         {
                             chIcon.source = fixtureObj ? fixtureManager.channelIcon(fixtureObj.id, index) : ""
+                            chIcon.tooltip = fixtureObj ? fixtureManager.channelName(fixtureObj.id, index) : ""
                         }
 
                         onDmxValueChanged:
@@ -204,6 +205,7 @@ Rectangle
                             height: parent.height
                             spacing: 1
 
+                            // channel enable/disable
                             Rectangle
                             {
                                 id: enableCheckBox
@@ -234,17 +236,19 @@ Rectangle
                                 }
                             }
 
-                            Image
+                            // channel icon
+                            IconButton
                             {
                                 id: chIcon
                                 x: (parent.width - width) / 2
                                 width: UISettings.iconSizeMedium
                                 height: width
-                                //Layout.alignment: Qt.AlignCenter
-                                sourceSize: Qt.size(width, height)
-                                source: fixtureObj ? fixtureManager.channelIcon(fixtureObj.id, index) : ""
+                                border.width: 0
+                                tooltip: fixtureObj ? fixtureManager.channelName(fixtureObj.id, index) : ""
+                                imgSource: fixtureObj ? fixtureManager.channelIcon(fixtureObj.id, index) : ""
                             }
 
+                            // channel fader
                             QLCPlusFader
                             {
                                 id: slider
@@ -269,6 +273,7 @@ Rectangle
                                 }
                             }
 
+                            // channel value
                             CustomSpinBox
                             {
                                 id: chValueSpin
@@ -280,7 +285,7 @@ Rectangle
                                 showControls: false
                                 padding: 0
                                 horizontalAlignment: Qt.AlignHCenter
-                                onValueChanged: dmxValue = value
+                                onValueModified: dmxValue = value
                             }
                         }
                     }

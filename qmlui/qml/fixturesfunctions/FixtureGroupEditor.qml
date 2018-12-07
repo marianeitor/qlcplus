@@ -77,7 +77,7 @@ Rectangle
                 from: 1
                 to: 999
                 value: fixtureGroupEditor.groupSize.width
-                onValueChanged: fixtureGroupEditor.groupSize = Qt.size(value, gridHeightSpin.value)
+                onValueModified: fixtureGroupEditor.groupSize = Qt.size(value, gridHeightSpin.value)
             }
 
             RobotoText
@@ -91,7 +91,7 @@ Rectangle
                 from: 1
                 to: 999
                 value: fixtureGroupEditor.groupSize.height
-                onValueChanged: fixtureGroupEditor.groupSize = Qt.size(gridWidthSpin.value, value)
+                onValueModified: fixtureGroupEditor.groupSize = Qt.size(gridWidthSpin.value, value)
             }
 
             IconButton
@@ -100,6 +100,18 @@ Rectangle
                 imgSource: "qrc:/position.svg"
                 tooltip: qsTr("Transform the selected items")
                 onClicked: transformMenu.open()
+            }
+
+            IconButton
+            {
+                imgSource: "qrc:/remove.svg"
+                tooltip: qsTr("Remove the selected items")
+                onClicked:
+                {
+                    fixtureGroupEditor.deleteSelection()
+                    var empty = []
+                    groupGrid.setSelectionData(empty)
+                }
             }
 
             IconButton
@@ -213,9 +225,23 @@ Rectangle
             gridLabels: fixtureGroupEditor.groupLabels
             evenColor: UISettings.fgLight
 
+            Component.onCompleted: forceActiveFocus()
+
+            Keys.onPressed:
+            {
+                if (event.key === Qt.Key_Delete)
+                {
+                    fixtureGroupEditor.deleteSelection()
+                    var empty = []
+                    setSelectionData(empty)
+                    event.accepted = true;
+                }
+            }
+
             onPressed:
             {
                 var empty = []
+                focus = true
 
                 if (xPos < 0 && yPos < 0)
                 {

@@ -21,9 +21,11 @@
 #define CHASEREDITOR_H
 
 #include "functioneditor.h"
+#include "scenevalue.h"
 
 class Chaser;
 class ListModel;
+class ChaserStep;
 
 class ChaserEditor : public FunctionEditor
 {
@@ -70,6 +72,19 @@ public:
      */
     Q_INVOKABLE bool addStep(int insertIndex = -1);
 
+    /**
+     * Move the selected steps at @insertIndex position
+     *
+     * @param indicesList A list of step indices to move
+     * @param insertIndex a specific insertion index (-1 means append)
+     *
+     * @return true if successful, otherwise false
+     */
+    Q_INVOKABLE bool moveSteps(QVariantList indicesList, int insertIndex = -1);
+
+    void setSequenceStepValue(SceneValue& scv);
+
+    /** Get/Set the Chaser playback start index */
     int playbackIndex() const;
     void setPlaybackIndex(int playbackIndex);
 
@@ -84,6 +99,8 @@ protected:
      *  If $selectedOnly is true, $value is applied only to the selected steps,
      *  otherwise it will be applied to all the steps */
     void setSelectedValue(Function::PropType type, QString param, uint value, bool selectedOnly = true);
+
+    static void addStepToListModel(Doc *doc, Chaser *chaser, ListModel *stepsList, ChaserStep *step);
 
 protected slots:
     /** Slot invoked during Chaser playback when the step index changes */

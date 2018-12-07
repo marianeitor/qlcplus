@@ -27,7 +27,6 @@ TechniqueFilter
     property GBuffer gBuffer
     property Layer screenQuadLayer
     property real ambientIntensity: View3D.ambientIntensity
-
     property FrameTarget frameTarget
 
     parameters: [
@@ -35,7 +34,6 @@ TechniqueFilter
         Parameter { name: "normalTex"; value: gBuffer.normal },
         Parameter { name: "specularTex"; value: gBuffer.specular },
         Parameter { name: "depthTex"; value: gBuffer.depth },
-
         Parameter { name: "ambient"; value: ambientIntensity }
     ]
 
@@ -52,9 +50,6 @@ TechniqueFilter
         ]
         LayerFilter
         {
-
-
-            //id: screenQuadLayerFilter
             layers: screenQuadLayer
 
             RenderTargetSelector {

@@ -159,7 +159,7 @@ Rectangle
                             drag.target: cfDelegate
                             drag.threshold: height / 2
 
-                            onClicked: ceSelector.selectItem(index, cFunctionList.model, mouse.modifiers & Qt.ControlModifier)
+                            onPressed: ceSelector.selectItem(index, cFunctionList.model, mouse.modifiers & Qt.ControlModifier)
                             onDoubleClicked:
                             {
                                 functionManager.setEditorFunction(model.funcID, false, false)
@@ -213,7 +213,7 @@ Rectangle
                         {
                             var insertIndex = cFunctionList.dragInsertIndex
                             if (insertIndex == -1)
-                                insertIndex = 0
+                                insertIndex = cFunctionList.count
 
                             for (var i = 0; i < drag.source.itemsList.length; i++)
                             {

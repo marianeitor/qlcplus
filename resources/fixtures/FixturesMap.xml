@@ -36,6 +36,7 @@
     <F n="American-DJ-Dotz-Bar-1.4" m="Dotz Bar 1.4"/>
     <F n="American-DJ-Dotz-Flood" m="Dotz Flood"/>
     <F n="American-DJ-Dotz-Matrix" m="Dotz Matrix"/>
+    <F n="American-DJ-Dotz-Panel-2.4" m="Dotz Panel 2.4"/>
     <F n="American-DJ-Dotz-Par" m="Dotz Par"/>
     <F n="American-DJ-Dotz-TPar" m="Dotz TPar"/>
     <F n="American-DJ-Double-Phase" m="Double Phase"/>
@@ -53,6 +54,7 @@
     <F n="American-DJ-Fog-Storm" m="Fog Storm (with FS-DMXT Timer Remote)"/>
     <F n="American-DJ-FREQ-16-Strobe" m="FREQ 16 Strobe"/>
     <F n="American-DJ-FREQ-5-Strobe" m="FREQ 5 Strobe"/>
+    <F n="American-DJ-FREQ-Matrix-Quad" m="FREQ Matrix Quad"/>
     <F n="American-DJ-Fusion-FX-Bar-1" m="Fusion FX Bar 1"/>
     <F n="American-DJ-Fusion-FX-Bar-5" m="Fusion FX Bar 5"/>
     <F n="American-DJ-Galaxian-3D" m="Galaxian 3D"/>
@@ -356,6 +358,7 @@
     <F n="Chauvet-Q-Spot-260-LED" m="Q-Spot 260 LED"/>
     <F n="Chauvet-Q-Spot-560-LED" m="Q-Spot 560 LED"/>
     <F n="Chauvet-Q-Wash-560Z-LED" m="Q-Wash 560Z-LED"/>
+    <F n="Chauvet-Rogue-R1-Spot" m="Rogue R1 Spot"/>
     <F n="Chauvet-Rogue-R2-Spot" m="Rogue R2 Spot"/>
     <F n="Chauvet-Rogue-RH1-Hybrid" m="Rogue RH1 Hybrid"/>
     <F n="Chauvet-RotoSphere-LED" m="RotoSphere LED"/>
@@ -594,6 +597,8 @@
   </M>
   <M n="Flash-Butrym">
     <F n="Flash-Butrym-LED-Moving-Head-Mini-Beam-18x3W-RGB-CREE" m="LED Moving Head Mini Beam 18x3W RGB CREE"/>
+    <F n="Flash-Butrym-LED-PAR-64-4x30W-COB-RGBW" m="LED PAR 64 4x30W COB RGBW"/>
+    <F n="Flash-Butrym-LED-PAR-64-COB-250W-2xWhite-Mk2" m="LED PAR 64 COB 250W 2xWhite Mk2"/>
   </M>
   <M n="Fun-Generation">
     <F n="Fun-Generation-LED-Diamond-Dome" m="LED Diamond Dome"/>
@@ -956,11 +961,13 @@
   <M n="Pro-Lights">
     <F n="Pro-Lights-Accent1Q" m="Accent1Q"/>
     <F n="Pro-Lights-ARCLED7314HD" m="ArcLed-7314HD"/>
+    <F n="Pro-Lights-BB5Pix" m="BB5 Pix"/>
     <F n="Pro-Lights-CromoSpot-150" m="CromoSpot150"/>
     <F n="Pro-Lights-CromoSpot-300" m="CromoSpot300"/>
     <F n="Pro-Lights-Explo-3000D" m="Explo 3000D"/>
     <F n="Pro-Lights-Fury-FY250S" m="Fury FY250S"/>
     <F n="Pro-Lights-Fury-FY250W" m="Fury FY250W"/>
+    <F n="Pro-Lights-Genesis" m="Genesis"/>
     <F n="Pro-Lights-GoboMix" m="GoboMix"/>
     <F n="Pro-Lights-LedPar-64363-RGB" m="LedPar 64363 RGB"/>
     <F n="Pro-Lights-LumiPar-18-Tri" m="LumiPar 18 Tri"/>
@@ -970,7 +977,7 @@
     <F n="Pro-Lights-LumiPAR18QTour" m="LumiPAR18QTour"/>
     <F n="Pro-Lights-LumiPIX-12Q" m="LumiPIX 12Q"/>
     <F n="Pro-Lights-Miniruby" m="Miniruby"/>
-    <F n="Pro-lights-Moonstone" m="Moonstone"/>
+    <F n="Pro-Lights-Moonstone" m="Moonstone"/>
     <F n="Pro-Lights-Omni-Tri-9" m="Omni Tri-9"/>
     <F n="Pro-Lights-Onyx" m="Onyx"/>
     <F n="Pro-Lights-PIXIEWASH" m="PIXIEWASH"/>
@@ -978,6 +985,7 @@
     <F n="Pro-Lights-SmartBatHEX" m="SmartBatHEX"/>
     <F n="Pro-Lights-Strobo-1500DMX" m="Strobo 1500DMX"/>
     <F n="Pro-Lights-StudioCOBFC" m="StudioCOBFC"/>
+    <F n="Pro-Lights-SunPix-12TRI" m="SunPix 12TRI"/>
     <F n="Pro-Lights-UVStrip18" m="UVStrip18"/>
     <F n="Pro-Lights-V200" m="V200"/>
     <F n="Pro-Lights-XP250" m="XP250"/>
@@ -1148,6 +1156,8 @@
     <F n="Solena-Mini-Par-12" m="Mini Par 12"/>
   </M>
   <M n="Stage_Right">
+    <F n="Stage-Right-10Wx9-LED-Flat-PAR" m="10Wx9 LED Flat PAR"/>
+    <F n="Stage-Right-3-Color-LED-Light-Bar" m="3-Color LED Light Bar"/>
     <F n="Stage-Right-7x20W-COB-LED-Theater-PAR" m="7x20W COB LED Theater PAR"/>
     <F n="Stage-Right-Stage-Wash-18Wx18-LED-PAR" m="Stage Wash 18Wx18 LED PAR"/>
   </M>
@@ -1179,8 +1189,9 @@
     <F n="Stairville-LED-Flood-Panel-150" m="LED Flood Panel 150"/>
     <F n="Stairville-LED-Flood-Panel-7x3W" m="LED Flood Panel 7x3W"/>
     <F n="Stairville-LED-Matrix-Blinder-5x5" m="LED Matrix Blinder 5x5"/>
-    <F n="Stairville-LED-Par-36-COB-RGBW-12W" m="LED Par 36 COB RGBW 12W"/>
+    <F n="Stairville-LED-PAR-36-COB-RGBW-12W" m="LED PAR 36 COB RGBW 12W"/>
     <F n="Stairville-LED-PAR-64-Alu" m="LED PAR 64 Alu"/>
+    <F n="Stairville-LED-PAR-64-COB-RGBW-60W" m="LED PAR 64 COB RGBW 60W"/>
     <F n="Stairville-LED-PAR56-10MM-UV" m="LED PAR56 10MM UV"/>
     <F n="Stairville-LED-PAR56-MKII-RGBA" m="LED Par56 MKII RGBA"/>
     <F n="Stairville-LED-PAR56-MKII-RGBW" m="LED Par56 MKII RGBW"/>

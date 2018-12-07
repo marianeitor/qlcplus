@@ -294,12 +294,7 @@ Rectangle
                 onToggled:
                 {
                     if (checked)
-                    {
-                        geomXSpin.value = 0
-                        geomYSpin.value = 0
-                        geomWSpin.value = 0
-                        geomHSpin.value = 0
-                    }
+                        videoEditor.customGeometry = Qt.rect(0, 0, 0, 0)
                 }
             }
             RobotoText
@@ -358,7 +353,7 @@ Rectangle
                 from: 0
                 to: 99999
                 value: videoEditor.customGeometry.x
-                onValueChanged: updateCustomGeometry()
+                onValueModified: updateCustomGeometry()
             }
             RobotoText { label: "Y" }
             CustomSpinBox
@@ -368,7 +363,7 @@ Rectangle
                 from: 0
                 to: 99999
                 value: videoEditor.customGeometry.y
-                onValueChanged: updateCustomGeometry()
+                onValueModified: updateCustomGeometry()
             }
         }
 
@@ -394,7 +389,7 @@ Rectangle
                 from: 0
                 to: 99999
                 value: videoEditor.customGeometry.width
-                onValueChanged: updateCustomGeometry()
+                onValueModified: updateCustomGeometry()
             }
             RobotoText { label: qsTr("H") }
             CustomSpinBox
@@ -404,7 +399,7 @@ Rectangle
                 from: 0
                 to: 99999
                 value: videoEditor.customGeometry.height
-                onValueChanged: updateCustomGeometry()
+                onValueModified: updateCustomGeometry()
             }
         }
 
@@ -429,7 +424,7 @@ Rectangle
                 to: 360
                 suffix: "°"
                 value: videoEditor.rotation.x
-                onValueChanged: updateRotation()
+                onValueModified: updateRotation()
             }
             RobotoText { label: qsTr("Y") }
             CustomSpinBox
@@ -440,7 +435,7 @@ Rectangle
                 to: 360
                 suffix: "°"
                 value: videoEditor.rotation.y
-                onValueChanged: updateRotation()
+                onValueModified: updateRotation()
             }
             RobotoText { label: qsTr("Z") }
             CustomSpinBox
@@ -451,8 +446,24 @@ Rectangle
                 to: 360
                 suffix: "°"
                 value: videoEditor.rotation.z
-                onValueChanged: updateRotation()
+                onValueModified: updateRotation()
             }
+        }
+
+        // row 13
+        RobotoText
+        {
+            height: UISettings.listItemHeight
+            label: qsTr("Layer");
+        }
+        CustomSpinBox
+        {
+            id: layerSpin
+            Layout.fillWidth: true
+            from: 1
+            to: 100
+            value: videoEditor.layer
+            onValueModified: videoEditor.layer = value
         }
     }
 }
