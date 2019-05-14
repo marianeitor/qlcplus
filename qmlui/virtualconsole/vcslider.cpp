@@ -80,8 +80,11 @@ VCSlider::~VCSlider()
     m_doc->masterTimer()->unregisterDMXSource(this);
 
     // request to delete all the active faders
-    foreach (GenericFader *fader, m_fadersMap.values())
-        fader->requestDelete();
+    foreach (QSharedPointer<GenericFader> fader, m_fadersMap.values())
+    {
+        if (!fader.isNull())
+            fader->requestDelete();
+    }
     m_fadersMap.clear();
 
     if (m_item)
@@ -252,8 +255,11 @@ void VCSlider::setSliderMode(SliderMode mode)
         m_doc->masterTimer()->unregisterDMXSource(this);
 
         // request to delete all the active faders
-        foreach (GenericFader *fader, m_fadersMap.values())
-            fader->requestDelete();
+        foreach (QSharedPointer<GenericFader> fader, m_fadersMap.values())
+        {
+            if (!fader.isNull())
+                fader->requestDelete();
+        }
         m_fadersMap.clear();
     }
 }
@@ -606,8 +612,8 @@ void VCSlider::slotTreeDataChanged(TreeModelItem *item, int role, const QVariant
     else
     {
         addLevelChannel(fixtureID, chIndex);
-        qSort(m_levelChannels.begin(), m_levelChannels.end());
-    }
+        std::sort(m_levelChannels.begin(), m_levelChannels.end());
+   }
 
     if (clickAndGoType() == CnGPreset)
     {
@@ -1107,8 +1113,8 @@ void VCSlider::writeDMXLevel(MasterTimer* timer, QList<Universe *> universes)
 
             quint32 universe = fxi->universe();
 
-            GenericFader *fader = m_fadersMap.value(universe, nullptr);
-            if (fader == nullptr)
+            QSharedPointer<GenericFader> fader = m_fadersMap.value(universe, QSharedPointer<GenericFader>(nullptr));
+            if (fader.isNull())
             {
                 fader = universes[universe]->requestFader();
                 m_fadersMap[universe] = fader;
@@ -1382,7 +1388,7 @@ bool VCSlider::loadXMLLevel(QXmlStreamReader &level_root)
     }
 
     if (m_levelChannels.count())
-        qSort(m_levelChannels.begin(), m_levelChannels.end());
+        std::sort(m_levelChannels.begin(), m_levelChannels.end());
 
     return true;
 }

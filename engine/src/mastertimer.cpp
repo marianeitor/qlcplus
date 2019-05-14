@@ -206,29 +206,13 @@ void MasterTimer::fadeAndStopAll(int timeout)
     Doc* doc = qobject_cast<Doc*> (parent());
     Q_ASSERT(doc != NULL);
 
-    QList<FadeChannel> fcList;
-
     QList<Universe *> universes = doc->inputOutputMap()->claimUniverses();
-    for (int i = 0; i < universes.count(); i++)
+    foreach (Universe *universe, universes)
     {
-        QHashIterator <int,uchar> it(universes[i]->intensityChannels());
-        while (it.hasNext() == true)
+        foreach (QSharedPointer<GenericFader> fader, universe->faders())
         {
-            it.next();
-
-            Fixture* fxi = doc->fixture(doc->fixtureForAddress(it.key()));
-            if (fxi != NULL)
-            {
-                uint ch = it.key() - fxi->universeAddress();
-                if (fxi->channelCanFade(ch))
-                {
-                    FadeChannel fc(doc, fxi->id(), ch);
-                    fc.setStart(it.value());
-                    fc.setTarget(0);
-                    fc.setFadeTime(timeout);
-                    fcList.append(fc);
-                }
-            }
+            if (!fader.isNull() && fader->parentFunctionID() != Function::invalidId())
+                fader->setFadeOut(true, uint(timeout));
         }
     }
     doc->inputOutputMap()->releaseUniverses();

@@ -102,6 +102,7 @@ void FadeChannel::unsetTypeFlag(int flag)
 
 void FadeChannel::autoDetect(const Doc *doc)
 {
+    bool fixtureWasInvalid = false;
     // reset before autodetecting
     setType(0);
 
@@ -109,7 +110,10 @@ void FadeChannel::autoDetect(const Doc *doc)
      * absolute (SimpleDesk/CueStack do it this way), so attempt
      * a reverse lookup to try and find the Fixture ID */
     if (m_fixture == Fixture::invalidId())
+    {
+        fixtureWasInvalid = true;
         m_fixture = doc->fixtureForAddress(channel());
+    }
 
     Fixture *fixture = doc->fixture(m_fixture);
     if (fixture == NULL)
@@ -123,7 +127,9 @@ void FadeChannel::autoDetect(const Doc *doc)
         m_universe = fixture->universe();
         m_address = fixture->address();
 
-        if (m_channel >= fixture->channels())
+        // if the fixture was invalid at the beginning of this method
+        // it means channel was an absolute address, so, fix it
+        if (fixtureWasInvalid)
             m_channel -= fixture->address();
 
         const QLCChannel *channel = fixture->channel(m_channel);
@@ -206,7 +212,7 @@ void FadeChannel::setStart(uchar value)
 
 uchar FadeChannel::start() const
 {
-    return m_start;
+    return uchar(m_start);
 }
 
 void FadeChannel::setTarget(uchar value)
@@ -216,7 +222,7 @@ void FadeChannel::setTarget(uchar value)
 
 uchar FadeChannel::target() const
 {
-    return m_target;
+    return uchar(m_target);
 }
 
 void FadeChannel::setCurrent(uchar value)
@@ -283,6 +289,7 @@ uchar FadeChannel::calculateCurrent(uint fadeTime, uint elapsedTime)
         // Return the target value if all time has been consumed
         // or if the channel has been marked ready.
         m_current = m_target;
+        setReady(true);
     }
     else if (elapsedTime == 0)
     {

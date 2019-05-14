@@ -33,6 +33,8 @@
   #include "qtserial-interface.h"
 #endif
 
+#define DEFAULT_OUTPUT_FREQUENCY    44  // 44 Hertz, according to the DMX specs
+
 typedef struct
 {
     /** The device line type (DMX, MIDI, etc) */
@@ -57,7 +59,7 @@ public:
      * @param interface The widget's DMXInterface instance
      * @param outputLine the specific output line this widget is going to control
      */
-    DMXUSBWidget(DMXInterface *interface, quint32 outputLine);
+    DMXUSBWidget(DMXInterface *interface, quint32 outputLine, int frequency);
 
     virtual ~DMXUSBWidget();
 
@@ -150,6 +152,8 @@ protected:
 
     /** The output frequency in Hertz */
     int m_frequency;
+
+    /** The DMX frame time duration in microseconds */
     int m_frameTimeUs;
 
     /** Array of output lines supported by the device. This is resized on setOutputsNumber */

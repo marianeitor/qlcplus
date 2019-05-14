@@ -81,6 +81,7 @@
     <F n="American-DJ-LED-Trispot" m="LED Trispot"/>
     <F n="American-DJ-Mega-Bar-50RGB" m="Mega Bar 50RGB"/>
     <F n="American-DJ-Mega-Bar-LED" m="Mega Bar LED"/>
+    <F n="American-DJ-Mega-Bar-RGBA" m="Mega Bar RGBA"/>
     <F n="American-DJ-Mega-Flash-DMX" m="Mega Flash DMX"/>
     <F n="American-DJ-Mega-Hex-Par" m="Mega Hex Par"/>
     <F n="American-DJ-Mega-Panel-LED" m="Mega Panel LED"/>
@@ -111,6 +112,7 @@
     <F n="American-DJ-Revo-4" m="Revo 4"/>
     <F n="American-DJ-Revo-Burst" m="Revo Burst"/>
     <F n="American-DJ-Revo-Sweep" m="Revo Sweep"/>
+    <F n="American-DJ-Saber-Spot-RGBW" m="Saber Spot RGBW"/>
     <F n="American-DJ-SP1500-MKII" m="SP-1500 MKII"/>
     <F n="American-DJ-Spherion-Tri-LED" m="Spherion Tri LED"/>
     <F n="American-DJ-Starball-LED-DMX" m="Starball LED DMX"/>
@@ -124,6 +126,7 @@
     <F n="American-DJ-TRI64-Profile" m="TRI64 PRO"/>
     <F n="American-DJ-Tribar-Spot2" m="Tribar Spot"/>
     <F n="American-DJ-UB-12H" m="UB 12H"/>
+    <F n="American-DJ-UB-6H" m="UB 6H"/>
     <F n="American-DJ-Ultra-Bar-12" m="Ultra Bar 12"/>
     <F n="American-DJ-Ultra-Bar-6" m="Ultra Bar 6"/>
     <F n="American-DJ-Ultra-Bar-9" m="Ultra Bar 9"/>
@@ -141,6 +144,7 @@
     <F n="American-DJ-Vizi-Roller-Beam-2R" m="Vizi Roller Beam 2R"/>
     <F n="American-DJ-VPar" m="VPar"/>
     <F n="American-DJ-Warlock" m="Warlock"/>
+    <F n="American-DJ-WiFLY-Chameleon" m="WiFLY Chameleon"/>
     <F n="American-DJ-WiFly-EXR-Dotz-Par" m="WiFly EXR Dotz Par"/>
     <F n="American-DJ-WiFly-EXR-HEX5-IP" m="WiFly EXR HEX5 IP"/>
     <F n="American-DJ-WiFly-PAR-QA5" m="WiFly PAR QA5"/>
@@ -162,12 +166,15 @@
     <F n="Ayra-Compar-Kit-1" m="Compar Kit 1"/>
     <F n="Ayra-ComPar20" m="ComPar 20"/>
     <F n="Ayra-ERO-506" m="ERO 506"/>
+    <F n="Ayra-IntenZ-CB-150" m="IntenZ CB-150 "/>
     <F n="Ayra-TDC-Agaricus" m="TDC Agaricus"/>
     <F n="Ayra-TDC-Triple-Burst" m="TDC Triple Burst"/>
     <F n="Ayra-WSM02-WSM03-MKII" m="WSM02/WSM03 MKII"/>
   </M>
   <M n="Ayrton">
     <F n="Ayrton-Arcaline-100-RGB" m="Arcaline 100 RGB"/>
+    <F n="Ayrton-MagicBlade-R" m="MagicBlade R"/>
+    <F n="Ayrton-MagicPanel-602" m="MagicPanel 602"/>
   </M>
   <M n="beamZ">
     <F n="beamZ-BAC406" m="BAC406 ProPar 6x18W 6-1 Hex"/>
@@ -176,6 +183,7 @@
     <F n="beamZ-LCB-252" m="LCB-252"/>
     <F n="beamZ-LED-FlatPAR-154" m="LED FlatPAR-154"/>
     <F n="beamZ-LS-3DRG" m="LS-3DRG"/>
+    <F n="beamZ-Lucid-1.2" m="Lucid 1.2"/>
     <F n="beamZ-MHL108-Wash-MKII" m="MHL108 Wash MKII"/>
     <F n="beamZ-MHL90-Wash-5x18W-RGBAW-UV" m="MHL90 Wash 5x18W RGBAW-UV"/>
   </M>
@@ -213,6 +221,7 @@
   </M>
   <M n="Briteq">
     <F n="Briteq-BT-575S" m="BT 575S"/>
+    <F n="Briteq-BT-575W" m="BT-575W"/>
     <F n="Briteq-BT-Theatre-100EC" m="BT Theatre 100EC"/>
     <F n="Briteq-BT-W07L12" m="BT-W07L12"/>
     <F n="Briteq-BT-W12L10" m="BT-W12L10"/>
@@ -281,6 +290,7 @@
     <F n="Chauvet-COLORado-1-Quad-Zoom-Tour" m="COLORado 1 Quad Zoom Tour"/>
     <F n="Chauvet-COLORado-1-Solo" m="COLORado 1 Solo"/>
     <F n="Chauvet-COLORado-1-Tour" m="COLORado 1 Tour"/>
+    <F n="Chauvet-COLORado-2-Quad-Zoom" m="COLORado 2 Quad Zoom"/>
     <F n="Chauvet-COLORado-3P" m="COLORado 3P"/>
     <F n="Chauvet-COLORado-Batten-72-Tour" m="COLORado Batten 72 Tour"/>
     <F n="Chauvet-ColorBand-Pix-IP" m="ColorBand Pix IP"/>
@@ -295,6 +305,7 @@
     <F n="Chauvet-Colorpalette-II" m="Colorpalette II"/>
     <F n="Chauvet-COLORpalette" m="COLORpalette"/>
     <F n="Chauvet-COLORrail-IRC2" m="COLORrail IRC"/>
+    <F n="Chauvet-COLORstrip-Mini-FX" m="COLORstrip Mini FX"/>
     <F n="Chauvet-ColorStrip-Mini" m="ColorStrip Mini"/>
     <F n="Chauvet-CORE-3x3" m="CORE 3x3"/>
     <F n="Chauvet-COREpar-40-USB" m="COREpar 40 USB"/>
@@ -320,6 +331,7 @@
     <F n="Chauvet-Hive" m="Hive"/>
     <F n="Chauvet-Hurricane-1800-Flex" m="Hurricane 1800 Flex"/>
     <F n="Chauvet-Hurricane-Haze-2" m="Hurricane Haze 2"/>
+    <F n="Chauvet-Intimidator-Barrel-300" m="Intimidator Barrel 300"/>
     <F n="Chauvet-Intimidator-Barrel-305-IRC" m="Intimidator Barrel 305 IRC"/>
     <F n="Chauvet-Intimidator-Beam-LED-350" m="Intimidator Beam LED 350"/>
     <F n="Chauvet-Intimidator-Hybrid-140SR" m="Intimidator Hybrid 140SR"/>
@@ -328,6 +340,7 @@
     <F n="Chauvet-Intimidator-Scan-LED-300" m="Intimidator Scan LED 300"/>
     <F n="Chauvet-Intimidator-Spot--355Z-IRC" m="Intimidator Spot 355Z IRC"/>
     <F n="Chauvet-Intimidator-Spot-100-IRC" m="Intimidator Spot 100 IRC"/>
+    <F n="Chauvet-Intimidator-Spot-155" m="Intimidator Spot 155"/>
     <F n="Chauvet-Intimidator-Spot-250" m="Intimidator Spot 250"/>
     <F n="Chauvet-Intimidator-Spot-255-IRC" m="Intimidator Spot 255 IRC"/>
     <F n="Chauvet-Intimidator-Spot-400-IRC" m="Intimidator Spot 400 IRC"/>
@@ -352,6 +365,7 @@
     <F n="Chauvet-MiN-Spot-RGBW" m="MiN Spot RGBW"/>
     <F n="Chauvet-Mini-Kinta" m="Mini Kinta"/>
     <F n="Chauvet-Omega-I-DMX-155" m="Omega I DMX-155"/>
+    <F n="Chauvet-Ovation-E-910FC" m="Ovation E-910FC"/>
     <F n="Chauvet-Ovation-FD-165WW" m="Ovation FD-165WW"/>
     <F n="Chauvet-Q-Beam-260-LED" m="Q-Beam 260-LED"/>
     <F n="Chauvet-Q-Spot-250" m="Q-Spot 250"/>
@@ -379,6 +393,7 @@
     <F n="Chauvet-SlimPar-Hex-6" m="SlimPar Hex 6"/>
     <F n="Chauvet-SlimPAR-Pro-H-USB" m="SlimPAR Pro H USB"/>
     <F n="Chauvet-SlimPar-Pro-Tri" m="SlimPar Pro Tri"/>
+    <F n="Chauvet-SlimPAR-Q12-USB" m="SlimPAR Q12 USB"/>
     <F n="Chauvet-SlimPAR-Q6-USB" m="SlimPAR Q6 USB"/>
     <F n="Chauvet-SlimPAR-QUAD-12-IRC" m="SlimPAR QUAD 12 IRC"/>
     <F n="Chauvet-SlimPAR-QUV12-USB" m="SlimPAR QUV12 USB"/>
@@ -552,6 +567,7 @@
     <F n="Eurolite-LED-T-36-RGB-Pinspot" m="LED T-36 RGB Pinspot"/>
     <F n="Eurolite-LED-THA-250F" m="LED THA-250F"/>
     <F n="Eurolite-Led-Theatre-36x3W-CW-WW" m="LED Theatre 36x3W CW/WW"/>
+    <F n="Eurolite-LED-TMH-46" m="LED TMH-46"/>
     <F n="Eurolite-LED-TMH-6" m="LED TMH-6"/>
     <F n="Eurolite-LED-TMH-9" m="LED TMH-9"/>
     <F n="Eurolite-LED-TMH-FE-600" m="LED TMH FE-600"/>
@@ -591,7 +607,9 @@
     <F n="Evolight-Colours-SL3" m="Colours SL3"/>
   </M>
   <M n="Expolite">
+    <F n="Expolite-AkkuLED-Power-Compact" m="AkkuLED Power Compact"/>
     <F n="Expolite-TourLed-42" m="TourLed 42"/>
+    <F n="Expolite-TourLED-MC180" m="TourLED MC180"/>
     <F n="Expolite-TourSpot-60" m="TourSpot 60"/>
     <F n="Expolite-TourStick-72-RGBWA" m="TourStick 72 RGBWA"/>
   </M>
@@ -602,6 +620,7 @@
   </M>
   <M n="Fun-Generation">
     <F n="Fun-Generation-LED-Diamond-Dome" m="LED Diamond Dome"/>
+    <F n="Fun-Generation-PicoSpot-20" m="PicoSpot 20"/>
     <F n="Fun-Generation-PicoWash-40-Pixel-Quad-LED" m="PicoWash 40 Pixel Quad LED"/>
     <F n="Fun-Generation-SePar-Quad-UV" m="SePar Quad UV"/>
   </M>
@@ -647,6 +666,7 @@
   </M>
   <M n="Generic">
     <F n="Generic-Generic-RGB" m="Generic RGB"/>
+    <F n="Generic-Generic-RGBW" m="Generic RGBW"/>
     <F n="Generic-Generic-Smoke" m="Generic Smoke"/>
   </M>
   <M n="Geni">
@@ -683,6 +703,9 @@
   <M n="Griven">
     <F n="Griven-Gobostorm-Plus-MK2" m="Gobostorm Plus MK2"/>
     <F n="Griven-Kolorado-2500" m="Kolorado 2500"/>
+  </M>
+  <M n="GTD">
+    <F n="GTD-LM150-Spot" m="LM150 Spot"/>
   </M>
   <M n="High_End_Systems">
     <F n="High-End-Systems-Studio-Beam" m="Studio Beam"/>
@@ -823,10 +846,16 @@
   </M>
   <M n="Litecraft">
     <F n="Litecraft-LED-PAR-64-AT3" m="LED PAR 64 AT3"/>
+    <F n="Litecraft-Mini-PAR-AT10" m="Mini PAR AT10 "/>
     <F n="Litecraft-OutLED-AT60.zoom" m="OutLED AT60.zoom"/>
     <F n="Litecraft-PowerBar-4" m="PowerBar 4"/>
     <F n="Litecraft-PowerBar-AT10.sx" m="PowerBar AT10.sx"/>
     <F n="Litecraft-WashX.21" m="WashX.21"/>
+  </M>
+  <M n="Lixada">
+    <F n="Lixada-Mini-Gobo-Moving-Head" m="Mini Gobo Moving Head"/>
+    <F n="Lixada-Mini-Wash-RGBW" m="Mini Wash RGBW"/>
+    <F n="Lixada-Triangle-Spider-Beam" m="Triangle Spider Beam"/>
   </M>
   <M n="Look_Solutions">
     <F n="Look-Solutions-Unique-2.1" m="Unique 2.1"/>
@@ -871,6 +900,7 @@
     <F n="Martin-MAC-700-Profile" m="MAC 700 Profile"/>
     <F n="Martin-MAC-700-Wash" m="MAC 700 Wash"/>
     <F n="Martin-MAC-Aura" m="MAC Aura"/>
+    <F n="Martin-MAC-Encore-Performance" m="MAC Encore Performance"/>
     <F n="Martin-MAC-Quantum-Profile" m="Mac Quantum Profile"/>
     <F n="Martin-MAC-Viper-Performance" m="MAC Viper Performance"/>
     <F n="Martin-MAC-Viper-Wash-DX" m="MAC Viper Wash DX"/>
@@ -1006,6 +1036,7 @@
   </M>
   <M n="Pulse">
     <F n="Pulse-ECO-LED-PAR56" m="ECO LED PAR56"/>
+    <F n="Pulse-Impstar-40" m="Impstar 40"/>
     <F n="Pulse-LEDBAR-320" m="LED BAR 320"/>
     <F n="Pulse-SlimLite-56" m="SlimLite 56"/>
   </M>
@@ -1160,6 +1191,7 @@
     <F n="Stage-Right-3-Color-LED-Light-Bar" m="3-Color LED Light Bar"/>
     <F n="Stage-Right-7x20W-COB-LED-Theater-PAR" m="7x20W COB LED Theater PAR"/>
     <F n="Stage-Right-Stage-Wash-18Wx18-LED-PAR" m="Stage Wash 18Wx18 LED PAR"/>
+    <F n="Stage-Right-StageLight-12Wx7-LED-PAR" m="PAR StageLight 12Wx7 LED"/>
   </M>
   <M n="StageTech">
     <F n="StageTech-LeaderScan-Roto" m="LeaderScan Roto"/>
@@ -1270,6 +1302,7 @@
   </M>
   <M n="UKing">
     <F n="UKing-Mini-RGBW-Moving-Head" m="Mini RGBW Moving Head"/>
+    <F n="UKing-Par-36" m="Par 36"/>
   </M>
   <M n="Vari-Lite">
     <F n="Vari-Lite-VL2500-Wash" m="VL2500 Wash"/>
